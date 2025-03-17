@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos Gratis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .resource {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .resource img {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+            border-radius: 5px;
+        }
+        .resource .info {
+            text-align: left;
+        }
+        .resource h2 {
+            margin: 0;
+            font-size: 18px;
+            color: #2c3e50;
+        }
+        .resource p {
+            margin: 5px 0 0;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <h1>RECURSOS</h1>
+    <div class="container">
+        
+        <script>
+            for (let i = 1; i <= 20; i++) {
+                document.write(`
+                    <div class="resource">
+                        <img src="placeholder.png" alt="Imagen del recurso ${i}">
+                        <div class="info">
+                            <h2>Título de recurso ${i}</h2>
+                            <p>Descripción del recurso ${i}</p>
+                        </div>
+                    </div>
+                `);
+            }
+        </script>
+
+    </div>
+</body>
+</html>
