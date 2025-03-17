@@ -8,20 +8,21 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #f4f4f4;
+            background-color: #2d2d2d; /* Fondo oscuro cómodo */
             margin: 0;
             padding: 20px;
+            color: #e0e0e0; /* Texto claro pero no blanco puro */
         }
         .container {
-            background: white;
+            background: #3a3a3a; /* Fondo de los contenedores un poco más claro que el fondo general */
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra más sutil pero visible */
             max-width: 600px;
             margin: auto;
         }
         h1 {
-            color: #2c3e50;
+            color: #f1c40f; /* Amarillo brillante para destacar el título */
         }
         ul {
             list-style: none;
@@ -29,17 +30,18 @@
         }
         li {
             padding: 10px;
-            background: #3498db;
+            background: #3498db; /* Azul para los botones */
             margin: 5px 0;
             color: white;
             border-radius: 5px;
             cursor: pointer;
+            transition: background 0.3s ease; /* Transición suave para el hover */
         }
         li:hover {
-            background: #2980b9;
+            background: #2980b9; /* Azul más oscuro al pasar el mouse */
         }
         p {
-            color: #555;
+            color: #d1d1d1; /* Texto secundario más claro */
         }
         .button {
             background-color: #3498db;
@@ -50,13 +52,17 @@
             cursor: pointer;
             margin: 5px 0;
             font-size: 14px;
+            transition: background 0.3s ease; /* Transición para el botón */
+        }
+        .button:hover {
+            background-color: #2980b9;
         }
         .hidden {
             display: none;
         }
         .disclaimer {
             font-size: 12px;
-            color: #777;
+            color: #a0a0a0; /* Texto del disclaimer en un gris tenue */
             margin-top: 10px;
         }
     </style>
