@@ -1,6 +1,6 @@
 # 🌟 Libertify 🌟
 
-Bienvenido a **Libertify**, un repositorio donde encontrarás herramientas y páginas web hasta sitios para obtener juegos gratuitos, aquí reunimos los mejores recursos disponibles. 🎉
+Bienvenido a **Libertify**, un repositorio donde encontrarás herramientas y páginas web hasta sitios para obtener juegos gratuitos, aquí reuní los mejores recursos disponibles. 🎉
 
 ##  ¿Qué encontrarás aquí?
 - 🎮 **Sitios para conseguir juegos gratis**
