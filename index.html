@@ -5,70 +5,186 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Libertify - Recursos Gratis</title>
     <style>
+        :root {
+            --background-color-light: #f9f9f9;
+            --text-color-light: #333333;
+            --container-background-light: #ffffff;
+            --button-color-light: #ff9800;
+            --button-hover-light: #e68900;
+            --title-color-light: #1a73e8;
+
+            --background-color-dark: #2d2d2d;
+            --text-color-dark: #e0e0e0;
+            --container-background-dark: #3a3a3a;
+            --button-color-dark: #00796b;
+            --button-hover-dark: #005a4f;
+            --title-color-dark: #f1c40f;
+        }
+
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #2d2d2d; /* Fondo oscuro cómodo */
             margin: 0;
             padding: 20px;
-            color: #e0e0e0; /* Texto claro pero no blanco puro */
+            background-color: var(--background-color-dark);
+            color: var(--text-color-dark);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
+
         .container {
-            background: #3a3a3a; /* Fondo de los contenedores un poco más claro que el fondo general */
+            background: var(--container-background-dark);
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra más sutil pero visible */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             max-width: 600px;
             margin: auto;
+            transition: background 0.3s ease;
         }
+
         h1 {
-            color: #f1c40f; /* Amarillo brillante para destacar el título */
+            color: var(--title-color-dark);
+            transition: color 0.3s ease;
         }
+
         ul {
             list-style: none;
             padding: 0;
         }
+
         li {
             padding: 10px;
-            background: #3498db; /* Azul para los botones */
+            background: var(--button-color-dark);
             margin: 5px 0;
             color: white;
             border-radius: 5px;
             cursor: pointer;
-            transition: background 0.3s ease; /* Transición suave para el hover */
+            transition: background 0.3s ease;
         }
+
         li:hover {
-            background: #2980b9; /* Azul más oscuro al pasar el mouse */
+            background: var(--button-hover-dark);
         }
+
         p {
-            color: #d1d1d1; /* Texto secundario más claro */
+            color: var(--text-color-dark);
         }
+
+        .highlight {
+            color: var(--text-color-dark);
+            transition: color 0.3s ease;
+        }
+
         .button {
-            background-color: #3498db;
+            background-color: var(--button-color-dark);
             color: white;
             border: none;
-            padding: 5px 10px;
+            padding: 8px 15px;
             border-radius: 5px;
             cursor: pointer;
-            margin: 5px 0;
+            margin: 10px 0;
             font-size: 14px;
-            transition: background 0.3s ease; /* Transición para el botón */
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: background 0.3s ease;
         }
+
         .button:hover {
-            background-color: #2980b9;
+            background-color: var(--button-hover-dark);
         }
+
         .hidden {
             display: none;
         }
+
+        .disclaimer-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--button-color-dark);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+
+        .disclaimer-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            background: var(--button-hover-dark);
+        }
+
         .disclaimer {
             font-size: 12px;
-            color: #a0a0a0; /* Texto del disclaimer en un gris tenue */
+            color: var(--text-color-dark);
             margin-top: 10px;
+        }
+
+        body.light-mode {
+            background-color: var(--background-color-light);
+            color: var(--text-color-light);
+        }
+
+        body.light-mode .container {
+            background: var(--container-background-light);
+        }
+
+        body.light-mode h1 {
+            color: var(--title-color-light);
+        }
+
+        body.light-mode li {
+            background: var(--button-color-light);
+        }
+
+        body.light-mode li:hover {
+            background: var(--button-hover-light);
+        }
+
+        body.light-mode .button {
+            background-color: var(--button-color-light);
+        }
+
+        body.light-mode .button:hover {
+            background-color: var(--button-hover-light);
+        }
+
+        body.light-mode .highlight {
+            color: var(--text-color-light);
+        }
+
+        body.light-mode .disclaimer-button {
+            background: var(--button-color-light);
+        }
+
+        body.light-mode .disclaimer-button:hover {
+            background: var(--button-hover-light);
+        }
+
+        body.light-mode .disclaimer {
+            color: var(--text-color-light);
         }
     </style>
     <script>
+        function toggleMode() {
+            const body = document.body;
+            const modeButton = document.getElementById("modeButton");
+            body.classList.toggle("light-mode");
+
+            // Cambiar el icono del botón
+            if (body.classList.contains("light-mode")) {
+                modeButton.innerHTML = "🌙 Modo Oscuro";
+            } else {
+                modeButton.innerHTML = "☀️ Modo Claro";
+            }
+        }
+
         function toggleDisclaimer() {
-            var disclaimer = document.getElementById("disclaimer");
+            const disclaimer = document.getElementById("disclaimer");
             disclaimer.classList.toggle("hidden");
         }
     </script>
@@ -76,7 +192,7 @@
 <body>
     <div class="container">
         <h1>🌟 Libertify 🌟</h1>
-        <p>Bienvenido a <strong>Free Online Tools & Resources</strong>, un sitio donde encontrarás herramientas y páginas web hasta sitios para obtener juegos gratuitos. 🎉</p>
+        <p class="highlight">Bienvenido a <strong>Libertify</strong>, un sitio donde encontrarás herramientas y páginas web hasta sitios para obtener juegos gratuitos. 🎉</p>
         
         <h2>📌 ¿Qué encontrarás aquí?</h2>
         <ul>
@@ -86,12 +202,14 @@
         </ul>
         
         <h2>📢 ¿Cómo contribuir?</h2>
-        <p>Si conoces alguna herramienta útil que debería estar aquí, ¡avísame! 💡</p>
+        <p class="highlight">Si conoces alguna herramienta útil que debería estar aquí, ¡avísame! 💡</p>
         
-        <p>✨ ¡Explora y disfruta de contenido gratuito! ✨</p>
+        <p class="highlight">✨ ¡Explora y disfruta de contenido gratuito! ✨</p>
         
-        <button class="button" onclick="toggleDisclaimer()">Ver Disclaimer</button>
-        <p id="disclaimer" class="disclaimer hidden">Este sitio comparte enlaces a herramientas y recursos gratuitos disponibles públicamente. No fomentamos el uso indebido de ningún servicio. Algunas de las páginas enlazadas pueden cambiar su disponibilidad o contenido con el tiempo. Se recomienda a los usuarios verificar la legalidad y términos de uso de cada sitio antes de utilizarlo. Libertify no se responsabiliza por el uso que se haga de los enlaces compartidos en este sitio.</p>
+        <button id="modeButton" class="button" onclick="toggleMode()">🌙 Modo Oscuro</button>
     </div>
+
+    <button class="disclaimer-button" onclick="toggleDisclaimer()">❔</button>
+    <p id="disclaimer" class="disclaimer hidden">Este sitio comparte enlaces a herramientas y recursos gratuitos disponibles públicamente. No fomentamos el uso indebido de ningún servicio. Algunas de las páginas enlazadas pueden cambiar su disponibilidad o contenido con el tiempo. Se recomienda a los usuarios verificar la legalidad y términos de uso de cada sitio antes de utilizarlo. Libertify no se responsabiliza por el uso que se haga de los enlaces compartidos en este sitio.</p>
 </body>
 </html>
