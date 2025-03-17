@@ -37,7 +37,29 @@
         p {
             color: #555;
         }
+        .hidden {
+            display: none;
+        }
+        .button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
     </style>
+    <script>
+        function toggleDisclaimer() {
+            var disclaimer = document.getElementById("disclaimer");
+            if (disclaimer.classList.contains("hidden")) {
+                disclaimer.classList.remove("hidden");
+            } else {
+                disclaimer.classList.add("hidden");
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -54,10 +76,10 @@
         <h2>📢 ¿Cómo contribuir?</h2>
         <p>Si conoces alguna herramienta útil que debería estar aquí, ¡avísame! 💡</p>
         
-        <h2>📜 Disclaimer</h2>
-        <p>Este sitio solo comparte enlaces a herramientas y recursos gratuitos disponibles públicamente. No fomentamos el uso indebido de ningún servicio.</p>
-        
         <p>✨ ¡Explora y disfruta de contenido gratuito! ✨</p>
+        
+        <button class="button" onclick="toggleDisclaimer()">📜 Ver Disclaimer</button>
+        <p id="disclaimer" class="hidden">Este sitio solo comparte enlaces a herramientas y recursos gratuitos disponibles públicamente. No fomentamos el uso indebido de ningún servicio.</p>
     </div>
 </body>
 </html>
