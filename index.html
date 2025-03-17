@@ -23,6 +23,24 @@
         h1 {
             color: #2c3e50;
         }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            background: #3498db;
+            margin: 5px 0;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        li:hover {
+            background: #2980b9;
+        }
+        p {
+            color: #555;
+        }
         .button {
             background-color: #3498db;
             color: white;
@@ -55,9 +73,11 @@
         <p>Bienvenido a <strong>Free Online Tools & Resources</strong>, un sitio donde encontrarás herramientas y páginas web hasta sitios para obtener juegos gratuitos. 🎉</p>
         
         <h2>📌 ¿Qué encontrarás aquí?</h2>
-        <a href="juegos.html" class="button">🎮 Sitios para conseguir juegos gratis</a>
-        <a href="recursos.html" class="button">📚 Recursos gratuitos en línea</a>
-        <a href="herramientas.html" class="button">🛠️ Herramientas útiles sin costo</a>
+        <ul>
+            <li onclick="location.href='juegos.html'">🎮 Sitios para conseguir juegos gratis</li>
+            <li onclick="location.href='recursos.html'">📚 Recursos gratuitos en línea</li>
+            <li onclick="location.href='herramientas.html'">🛠️ Herramientas útiles sin costo</li>
+        </ul>
         
         <h2>📢 ¿Cómo contribuir?</h2>
         <p>Si conoces alguna herramienta útil que debería estar aquí, ¡avísame! 💡</p>
