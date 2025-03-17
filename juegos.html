@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juegos Gratis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .game {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .game img {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+            border-radius: 5px;
+        }
+        .game .info {
+            text-align: left;
+        }
+        .game h2 {
+            margin: 0;
+            font-size: 18px;
+            color: #2c3e50;
+        }
+        .game p {
+            margin: 5px 0 0;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <h1>JUEGOS</h1>
+    <div class="container">
+        
+        <script>
+            for (let i = 1; i <= 20; i++) {
+                document.write(`
+                    <div class="game">
+                        <img src="placeholder.png" alt="Imagen del juego ${i}">
+                        <div class="info">
+                            <h2>Título de ejemplo ${i}</h2>
+                            <p>Descripción de ejemplo ${i}</p>
+                        </div>
+                    </div>
+                `);
+            }
+        </script>
 
+    </div>
+</body>
+</html>
