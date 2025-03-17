@@ -5,50 +5,213 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juegos Gratis</title>
     <style>
+        :root {
+            --background-color-light: #f9f9f9;
+            --text-color-light: #333333;
+            --container-background-light: #ffffff;
+            --button-color-light: #ff9800;
+            --button-hover-light: #e68900;
+            --title-color-light: #1a73e8;
+
+            --background-color-dark: #2d2d2d;
+            --text-color-dark: #e0e0e0;
+            --container-background-dark: #3a3a3a;
+            --button-color-dark: #00796b;
+            --button-hover-dark: #005a4f;
+            --title-color-dark: #f1c40f;
+        }
+
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #f4f4f4;
             margin: 0;
             padding: 20px;
+            background-color: var(--background-color-dark);
+            color: var(--text-color-dark);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
+
         .container {
             max-width: 800px;
             margin: auto;
+            background: var(--container-background-dark);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: background 0.3s ease;
         }
+
         .game {
             display: flex;
             align-items: center;
-            background: white;
+            background: var(--container-background-dark);
             padding: 15px;
             margin: 10px 0;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease;
         }
+
         .game img {
             width: 100px;
             height: 100px;
             margin-right: 20px;
             border-radius: 5px;
         }
+
         .game .info {
             text-align: left;
         }
+
         .game h2 {
             margin: 0;
             font-size: 18px;
-            color: #2c3e50;
+            color: var(--text-color-dark);
         }
+
         .game p {
             margin: 5px 0 0;
-            color: #777;
+            color: var(--text-color-dark);
+        }
+
+        .button {
+            background-color: var(--button-color-dark);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: var(--button-hover-dark);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .disclaimer-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--button-color-dark);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+
+        .disclaimer-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            background: var(--button-hover-dark);
+        }
+
+        .disclaimer {
+            font-size: 12px;
+            color: var(--text-color-dark);
+            margin-top: 10px;
+        }
+
+        body.light-mode {
+            background-color: var(--background-color-light);
+            color: var(--text-color-light);
+        }
+
+        body.light-mode .container {
+            background: var(--container-background-light);
+        }
+
+        body.light-mode .game {
+            background: var(--container-background-light);
+        }
+
+        body.light-mode .game h2 {
+            color: var(--text-color-light);
+        }
+
+        body.light-mode .game p {
+            color: var(--text-color-light);
+        }
+
+        body.light-mode .button {
+            background-color: var(--button-color-light);
+        }
+
+        body.light-mode .button:hover {
+            background-color: var(--button-hover-light);
+        }
+
+        body.light-mode .disclaimer-button {
+            background: var(--button-color-light);
+        }
+
+        body.light-mode .disclaimer-button:hover {
+            background: var(--button-hover-light);
+        }
+
+        body.light-mode .disclaimer {
+            color: var(--text-color-light);
         }
     </style>
+    <script>
+        // Función para cambiar entre modo oscuro y claro
+        function toggleMode() {
+            const body = document.body;
+            const modeButton = document.getElementById("modeButton");
+            body.classList.toggle("light-mode");
+
+            // Guardar la preferencia en localStorage
+            if (body.classList.contains("light-mode")) {
+                localStorage.setItem("theme", "light");
+                modeButton.innerHTML = "🌙 Modo Oscuro";
+            } else {
+                localStorage.setItem("theme", "dark");
+                modeButton.innerHTML = "☀️ Modo Claro";
+            }
+        }
+
+        // Función para cargar la preferencia de tema al cargar la página
+        function loadTheme() {
+            const savedTheme = localStorage.getItem("theme");
+            const body = document.body;
+            const modeButton = document.getElementById("modeButton");
+
+            if (savedTheme === "light") {
+                body.classList.add("light-mode");
+                modeButton.innerHTML = "🌙 Modo Oscuro";
+            } else {
+                body.classList.remove("light-mode");
+                modeButton.innerHTML = "☀️ Modo Claro";
+            }
+        }
+
+        // Función para mostrar/ocultar el disclaimer
+        function toggleDisclaimer() {
+            const disclaimer = document.getElementById("disclaimer");
+            disclaimer.classList.toggle("hidden");
+        }
+
+        // Cargar el tema al iniciar la página
+        window.onload = loadTheme;
+    </script>
 </head>
 <body>
-    <h1>JUEGOS</h1>
     <div class="container">
-        
+        <h1>🎮 Juegos Gratis</h1>
+        <button id="modeButton" class="button" onclick="toggleMode()">☀️ Modo Claro</button>
+
         <script>
             for (let i = 1; i <= 20; i++) {
                 document.write(`
@@ -62,7 +225,11 @@
                 `);
             }
         </script>
-
     </div>
+
+    <button class="disclaimer-button" onclick="toggleDisclaimer()">❔</button>
+    <p id="disclaimer" class="disclaimer hidden">
+        Este sitio comparte enlaces a herramientas y recursos gratuitos disponibles públicamente. No fomentamos el uso indebido de ningún servicio. Algunas de las páginas enlazadas pueden cambiar su disponibilidad o contenido con el tiempo. Se recomienda a los usuarios verificar la legalidad y términos de uso de cada sitio antes de utilizarlo. Libertify no se responsabiliza por el uso que se haga de los enlaces compartidos en este sitio.
+    </p>
 </body>
 </html>
