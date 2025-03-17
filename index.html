@@ -23,41 +23,29 @@
         h1 {
             color: #2c3e50;
         }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            padding: 10px;
-            background: #3498db;
-            margin: 5px 0;
-            color: white;
-            border-radius: 5px;
-        }
-        p {
-            color: #555;
-        }
-        .hidden {
-            display: none;
-        }
         .button {
             background-color: #3498db;
             color: white;
             border: none;
-            padding: 10px;
+            padding: 5px 10px;
             border-radius: 5px;
             cursor: pointer;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        .hidden {
+            display: none;
+        }
+        .disclaimer {
+            font-size: 12px;
+            color: #777;
             margin-top: 10px;
         }
     </style>
     <script>
         function toggleDisclaimer() {
             var disclaimer = document.getElementById("disclaimer");
-            if (disclaimer.classList.contains("hidden")) {
-                disclaimer.classList.remove("hidden");
-            } else {
-                disclaimer.classList.add("hidden");
-            }
+            disclaimer.classList.toggle("hidden");
         }
     </script>
 </head>
@@ -67,19 +55,17 @@
         <p>Bienvenido a <strong>Free Online Tools & Resources</strong>, un sitio donde encontrarás herramientas y páginas web hasta sitios para obtener juegos gratuitos. 🎉</p>
         
         <h2>📌 ¿Qué encontrarás aquí?</h2>
-        <ul>
-            <li>🎮 Sitios para conseguir juegos gratis</li>
-            <li>📚 Recursos gratuitos en línea</li>
-            <li>🛠️ Herramientas útiles sin costo</li>
-        </ul>
+        <a href="juegos.html" class="button">🎮 Sitios para conseguir juegos gratis</a>
+        <a href="recursos.html" class="button">📚 Recursos gratuitos en línea</a>
+        <a href="herramientas.html" class="button">🛠️ Herramientas útiles sin costo</a>
         
         <h2>📢 ¿Cómo contribuir?</h2>
         <p>Si conoces alguna herramienta útil que debería estar aquí, ¡avísame! 💡</p>
         
         <p>✨ ¡Explora y disfruta de contenido gratuito! ✨</p>
         
-        <button class="button" onclick="toggleDisclaimer()">📜 Ver Disclaimer</button>
-        <p id="disclaimer" class="hidden">Este sitio solo comparte enlaces a herramientas y recursos gratuitos disponibles públicamente. No fomentamos el uso indebido de ningún servicio.</p>
+        <button class="button" onclick="toggleDisclaimer()">Ver Disclaimer</button>
+        <p id="disclaimer" class="disclaimer hidden">Este sitio comparte enlaces a herramientas y recursos gratuitos disponibles públicamente. No fomentamos el uso indebido de ningún servicio. Algunas de las páginas enlazadas pueden cambiar su disponibilidad o contenido con el tiempo. Se recomienda a los usuarios verificar la legalidad y términos de uso de cada sitio antes de utilizarlo. Libertify no se responsabiliza por el uso que se haga de los enlaces compartidos en este sitio.</p>
     </div>
 </body>
 </html>
