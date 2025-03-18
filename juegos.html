@@ -5,111 +5,204 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juegos Gratis</title>
     <style>
-        /* Tus estilos actuales... */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2d2d2d;
+            color: #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        body.light-mode {
+            background-color: #f9f9f9;
+            color: #333333;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #f1c40f;
+        }
+
+        body.light-mode h1 {
+            color: #1a73e8;
+        }
+
+        .game {
+            display: inline-block;
+            width: 300px;
+            margin: 20px;
+            background: #3a3a3a;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        body.light-mode .game {
+            background: #ffffff;
+        }
+
+        .game:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .game img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .info {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .info h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #f1c40f;
+        }
+
+        body.light-mode .info h2 {
+            color: #1a73e8;
+        }
+
+        .info p {
+            margin: 10px 0 0;
+            font-size: 0.9rem;
+            color: #d1d1d1;
+        }
+
+        body.light-mode .info p {
+            color: #555555;
+        }
+
+        .button {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        body.light-mode .button {
+            background-color: #ff9800;
+        }
+
+        .button:hover {
+            background-color: #005a4f;
+        }
+
+        body.light-mode .button:hover {
+            background-color: #e68900;
+        }
+
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-top: 20px;
+        }
+
+        body.light-mode .disclaimer {
+            color: #666;
+        }
+
+        .disclaimer-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #00796b;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .disclaimer-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
     </style>
     <script>
         // Datos de los juegos
         const juegos = [
             {
                 titulo: "Lethal Company",
-                descripcion: "Lethal Company es un juego de terror y supervivencia cooperativo que te sumerge en una experiencia llena de tensión y misterio. Trabajas como empleado de una compañía que te envía a planetas abandonados para recolectar recursos valiosos. Sin embargo, no estás solo: criaturas aterradoras y fenómenos inexplicables te acechan en cada esquina.
-
-Características principales:
-
-Cooperativo en línea: Forma equipos de hasta 4 jugadores y trabaja junto a tus amigos para sobrevivir.
-
-Planetas generados proceduralmente: Cada misión es única, con entornos y peligros diferentes.
-
-Terror psicológico: El juego combina sustos clásicos con una atmósfera opresiva que te mantendrá en vilo.
-
-Mods personalizados:
-
-Mods de Mimic: Añade criaturas que imitan las voces y apariencias de tus compañeros, creando paranoia y
-
-",
-                imagen: "...",
-                enlace: "..."
+                descripcion: "Lethal Company es un juego de terror y supervivencia cooperativo que te sumerge en una experiencia llena de tensión y misterio.",
+                imagen: "https://via.placeholder.com/300x200?text=Lethal+Company",
+                enlace: "https://example.com/lethal-company"
             },
             {
-                titulo: "Juego 2",
-                descripcion: "Descripción del Juego 2.",
-                imagen: "ruta/imagen2.jpg",
-                enlace: "https://enlace-al-juego-2.com"
+                titulo: "Among Us",
+                descripcion: "Un juego multijugador en el que trabajas en equipo (o traicionas a tus amigos) para completar tareas en una nave espacial.",
+                imagen: "https://via.placeholder.com/300x200?text=Among+Us",
+                enlace: "https://example.com/among-us"
             },
             {
-                titulo: "Juego 3",
-                descripcion: "Descripción del Juego 3.",
-                imagen: "ruta/imagen3.jpg",
-                enlace: "https://enlace-al-juego-3.com"
-            },
-            // Añade más juegos aquí...
+                titulo: "Minecraft Classic",
+                descripcion: "Explora y construye en un mundo infinito en este clásico juego de sandbox.",
+                imagen: "https://via.placeholder.com/300x200?text=Minecraft+Classic",
+                enlace: "https://example.com/minecraft-classic"
+            }
         ];
 
-        // Función para cambiar entre modo oscuro y claro
+        // Cambiar entre modo oscuro y claro
         function toggleMode() {
             const body = document.body;
-            const modeButton = document.getElementById("modeButton");
             body.classList.toggle("light-mode");
-
-            // Guardar la preferencia en localStorage
-            if (body.classList.contains("light-mode")) {
-                localStorage.setItem("theme", "light");
-                modeButton.innerHTML = "🌙 Modo Oscuro";
-            } else {
-                localStorage.setItem("theme", "dark");
-                modeButton.innerHTML = "☀️ Modo Claro";
-            }
         }
 
-        // Función para cargar la preferencia de tema al cargar la página
-        function loadTheme() {
-            const savedTheme = localStorage.getItem("theme");
-            const body = document.body;
-            const modeButton = document.getElementById("modeButton");
-
-            if (savedTheme === "light") {
-                body.classList.add("light-mode");
-                modeButton.innerHTML = "🌙 Modo Oscuro";
-            } else {
-                body.classList.remove("light-mode");
-                modeButton.innerHTML = "☀️ Modo Claro";
-            }
-        }
-
-        // Función para mostrar/ocultar el disclaimer
+        // Mostrar/ocultar disclaimer
         function toggleDisclaimer() {
             const disclaimer = document.getElementById("disclaimer");
             disclaimer.classList.toggle("hidden");
         }
 
-        // Cargar el tema al iniciar la página
-        window.onload = loadTheme;
+        // Crear tarjetas dinámicamente
+        window.onload = () => {
+            const container = document.querySelector(".container");
+            juegos.forEach(juego => {
+                const gameCard = document.createElement("div");
+                gameCard.className = "game";
+                gameCard.onclick = () => window.open(juego.enlace, "_blank");
+                gameCard.innerHTML = `
+                    <img src="${juego.imagen}" alt="${juego.titulo}">
+                    <div class="info">
+                        <h2>${juego.titulo}</h2>
+                        <p>${juego.descripcion}</p>
+                    </div>
+                `;
+                container.appendChild(gameCard);
+            });
+        };
     </script>
 </head>
 <body>
     <div class="container">
         <h1>🎮 Juegos Gratis</h1>
-        <button id="modeButton" class="button" onclick="toggleMode()">☀️ Modo Claro</button>
-
-        <script>
-            // Generar las tarjetas de juegos
-            juegos.forEach(juego => {
-                document.write(`
-                    <div class="game" onclick="window.open('${juego.enlace}', '_blank')">
-                        <img src="${juego.imagen}" alt="${juego.titulo}">
-                        <div class="info">
-                            <h2>${juego.titulo}</h2>
-                            <p>${juego.descripcion}</p>
-                        </div>
-                    </div>
-                `);
-            });
-        </script>
+        <button class="button" onclick="toggleMode()">🌙 Modo Oscuro</button>
     </div>
-
     <button class="disclaimer-button" onclick="toggleDisclaimer()">❔</button>
     <p id="disclaimer" class="disclaimer hidden">
-        Este sitio comparte enlaces a herramientas y recursos gratuitos disponibles públicamente. No fomentamos el uso indebido de ningún servicio. Algunas de las páginas enlazadas pueden cambiar su disponibilidad o contenido con el tiempo. Se recomienda a los usuarios verificar la legalidad y términos de uso de cada sitio antes de utilizarlo. Libertify no se responsabiliza por el uso que se haga de los enlaces compartidos en este sitio.
+        Este sitio comparte enlaces a herramientas y recursos gratuitos disponibles públicamente. No fomentamos el uso indebido de ningún servicio.
     </p>
 </body>
 </html>
