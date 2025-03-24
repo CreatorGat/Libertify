@@ -43,7 +43,6 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -140,7 +139,60 @@
             transform: scale(1.1);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
+
+        /* Botón fijo de YouTube */
+        .youtube-fixed {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            z-index: 1000;
+        }
+
+        .youtube-fixed:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            background-color: #cc0000;
+        }
+
+        .youtube-icon {
+            width: 20px;
+            height: 20px;
+        }
     </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Juegos Gratis</h1>
+        <button class="button" onclick="toggleMode()">🌙 Modo Oscuro</button>
+        
+        <!-- Juegos se insertarán aquí dinámicamente -->
+    </div>
+
+    <!-- Botón fijo de YouTube -->
+    <button class="youtube-fixed" onclick="window.open('https://youtu.be/MRz4nUrkdQg', '_blank')">
+        <svg class="youtube-icon" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.56 21.94,11.16L22,12C22,14.19 21.84,15.8 21.56,16.83C21.31,17.73 20.73,18.31 19.83,18.56C19.36,18.69 18.5,18.78 17.18,18.84C15.88,18.91 14.69,18.94 13.59,18.94L12,19C7.81,19 5.2,18.84 4.17,18.56C3.27,18.31 2.69,17.73 2.44,16.83C2.31,16.36 2.22,15.73 2.16,14.93C2.09,14.13 2.06,13.44 2.06,12.84L2,12C2,9.81 2.16,8.2 2.44,7.17C2.69,6.27 3.27,5.69 4.17,5.44C4.64,5.31 5.5,5.22 6.82,5.16C8.12,5.09 9.31,5.06 10.41,5.06L12,5C16.19,5 18.8,5.16 19.83,5.44C20.73,5.69 21.31,6.27 21.56,7.17Z"/>
+        </svg>
+        YouTube
+    </button>
+
+    <button class="disclaimer-button" onclick="toggleDisclaimer()">❔</button>
+    <p id="disclaimer" class="disclaimer hidden">
+        Usar con responsabilidad
+    </p>
+
     <script>
         // Datos de los juegos
         const juegos = [
@@ -151,10 +203,10 @@
                 enlace: "https://www.mediafire.com/file/ggv8n9k7x5wqukx/LethalCompany.exe/file"
             },
             {
-                titulo: "Among Us",
-                descripcion: "Un juego multijugador en el que trabajas en equipo (o traicionas a tus amigos) para completar tareas en una nave espacial.",
-                imagen: "https://via.placeholder.com/300x200?text=Among+Us",
-                enlace: "https://example.com/among-us"
+                titulo: "Stardew Valley",
+                descripcion: "Relaja, cultiva, explora y vive tu granja soñada. (NO ONLINE)",
+                imagen: "https://image.api.playstation.com/cdn/UP2456/CUSA06840_00/0WuZecPtRr7aEsQPv2nJqiPa2ZvDOpYm.png",
+                enlace: "https://www.4shared.com/file/KCHfUmrSge/Stardew_Valley.html"
             },
             {
                 titulo: "Minecraft Classic",
@@ -194,15 +246,5 @@
             });
         };
     </script>
-</head>
-<body>
-    <div class="container">
-        <h1>🎮 Juegos Gratis</h1>
-        <button class="button" onclick="toggleMode()">🌙 Modo Oscuro</button>
-    </div>
-    <button class="disclaimer-button" onclick="toggleDisclaimer()">❔</button>
-    <p id="disclaimer" class="disclaimer hidden">
-        Usar con responsabilidad
-    </p>
 </body>
 </html>
