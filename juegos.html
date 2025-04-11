@@ -120,6 +120,33 @@
             color: #666;
         }
 
+        /* Botón de modo oscuro/claro en esquina inferior izquierda */
+        .mode-toggle {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #00796b;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 1000;
+        }
+
+        body.light-mode .mode-toggle {
+            background-color: #ff9800;
+        }
+
+        .mode-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Botón de disclaimer en esquina inferior derecha */
         .disclaimer-button {
             position: fixed;
             bottom: 20px;
@@ -133,6 +160,11 @@
             font-size: 14px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 1000;
+        }
+
+        body.light-mode .disclaimer-button {
+            background-color: #ff9800;
         }
 
         .disclaimer-button:hover {
@@ -170,15 +202,21 @@
             width: 20px;
             height: 20px;
         }
+
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>🎮 creatorgat :v</h1>
-        <button class="button" onclick="toggleMode()">🌙 Modo Oscuro</button>
         
         <!-- Juegos se insertarán aquí dinámicamente -->
     </div>
+
+    <!-- Botón de modo oscuro/claro -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 Modo Oscuro</button>
 
     <!-- Botón fijo de YouTube -->
     <button class="youtube-fixed" onclick="window.open('https://youtu.be/MRz4nUrkdQg', '_blank')">
@@ -210,7 +248,7 @@
             },
             {
                 titulo: "Schedule I [ONLINE]",
-                descripcion: "Desde un pequeño traficante de drogas hasta un capo, fabrica y distribuye una amplia gama de drogasExpande tu imperio con propiedades, negocios, empleados y mucho más.",
+                descripcion: "Desde un pequeño traficante de drogas hasta un capo, fabrica y distribuye una amplia gama de drogas. Expande tu imperio con propiedades, negocios, empleados y mucho más.",
                 imagen: "https://www.scheduleonegame.com/img/extended-logo.png",
                 enlace: "https://www.4shared.com/s/fi1r9qqUKku"
             },
@@ -225,7 +263,14 @@
         // Cambiar entre modo oscuro y claro
         function toggleMode() {
             const body = document.body;
+            const button = document.querySelector('.mode-toggle');
             body.classList.toggle("light-mode");
+            
+            if (body.classList.contains("light-mode")) {
+                button.textContent = "🌙 Modo Oscuro";
+            } else {
+                button.textContent = "☀️ Modo Claro";
+            }
         }
 
         // Mostrar/ocultar disclaimer
