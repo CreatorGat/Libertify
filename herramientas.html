@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreatorGat programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2d2d2d;
+            color: #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        body.light-mode {
+            background-color: #f9f9f9;
+            color: #333333;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #f1c40f;
+        }
+
+        body.light-mode h1 {
+            color: #1a73e8;
+        }
+
+        .game {
+            display: inline-block;
+            width: 300px;
+            margin: 20px;
+            background: #3a3a3a;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        body.light-mode .game {
+            background: #ffffff;
+        }
+
+        .game:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .game img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .info {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .info h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #f1c40f;
+        }
+
+        body.light-mode .info h2 {
+            color: #1a73e8;
+        }
+
+        .info p {
+            margin: 10px 0 0;
+            font-size: 0.9rem;
+            color: #d1d1d1;
+        }
+
+        body.light-mode .info p {
+            color: #555555;
+        }
+
+        .button {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        body.light-mode .button {
+            background-color: #ff9800;
+        }
+
+        .button:hover {
+            background-color: #005a4f;
+        }
+
+        body.light-mode .button:hover {
+            background-color: #e68900;
+        }
+
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-top: 20px;
+        }
+
+        body.light-mode .disclaimer {
+            color: #666;
+        }
+
+        /* Botón de modo oscuro/claro en esquina inferior izquierda */
+        .mode-toggle {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #00796b;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 1000;
+        }
+
+        body.light-mode .mode-toggle {
+            background-color: #ff9800;
+        }
+
+        .mode-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Botón de disclaimer en esquina inferior derecha */
+        .disclaimer-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #00796b;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 1000;
+        }
+
+        body.light-mode .disclaimer-button {
+            background-color: #ff9800;
+        }
+
+        .disclaimer-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Botón fijo de YouTube */
+        .youtube-fixed {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            z-index: 1000;
+        }
+
+        .youtube-fixed:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            background-color: #cc0000;
+        }
+
+        .youtube-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💲 creatorgat :v</h1>
+        
+        <!-- Juegos se insertarán aquí dinámicamente -->
+    </div>
+
+    <!-- Botón de modo oscuro/claro -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 Modo Oscuro</button>
+
+    <!-- Botón fijo de YouTube -->
+    <button class="youtube-fixed" onclick="window.open('https://youtu.be/ROQuJTeuvkc', '_blank')">
+        <svg class="youtube-icon" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.56 21.94,11.16L22,12C22,14.19 21.84,15.8 21.56,16.83C21.31,17.73 20.73,18.31 19.83,18.56C19.36,18.69 18.5,18.78 17.18,18.84C15.88,18.91 14.69,18.94 13.59,18.94L12,19C7.81,19 5.2,18.84 4.17,18.56C3.27,18.31 2.69,17.73 2.44,16.83C2.31,16.36 2.22,15.73 2.16,14.93C2.09,14.13 2.06,13.44 2.06,12.84L2,12C2,9.81 2.16,8.2 2.44,7.17C2.69,6.27 3.27,5.69 4.17,5.44C4.64,5.31 5.5,5.22 6.82,5.16C8.12,5.09 9.31,5.06 10.41,5.06L12,5C16.19,5 18.8,5.16 19.83,5.44C20.73,5.69 21.31,6.27 21.56,7.17Z"/>
+        </svg>
+        YouTube
+    </button>
+
+    <button class="disclaimer-button" onclick="toggleDisclaimer()">❔</button>
+    <p id="disclaimer" class="disclaimer hidden">
+        Usar con responsabilidad
+    </p>
+
+    <script>
+        // Datos de los juegos
+        const juegos = [
+            {
+                titulo: "FL Studio 2024",
+                descripcion: "DAW, con todos los plugins, revisa el tutorial en youtube debido a que es dificil de instalar.",
+                imagen: "https://www.pugetsystems.com/wp-content/uploads/2023/02/FL-Studio-Logo-Icon.png",
+                enlace: "https://buzzheavier.com/tnj3whincend"
+            },
+            {
+                titulo: "...",
+                descripcion: "...",
+                imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXzhxtKQWGsQ0nC0YYuvaBqN-F5LyVpanYk9f9h3kFQw&s&ec=72940545",
+                enlace: "https://www.pornhub.com"
+            },
+        ];
+
+        // Cambiar entre modo oscuro y claro
+        function toggleMode() {
+            const body = document.body;
+            const button = document.querySelector('.mode-toggle');
+            body.classList.toggle("light-mode");
+            
+            if (body.classList.contains("light-mode")) {
+                button.textContent = "🌙 Modo Oscuro";
+            } else {
+                button.textContent = "☀️ Modo Claro";
+            }
+        }
+
+        // Mostrar/ocultar disclaimer
+        function toggleDisclaimer() {
+            const disclaimer = document.getElementById("disclaimer");
+            disclaimer.classList.toggle("hidden");
+        }
+
+        // Crear tarjetas dinámicamente
+        window.onload = () => {
+            const container = document.querySelector(".container");
+            juegos.forEach(juego => {
+                const gameCard = document.createElement("div");
+                gameCard.className = "game";
+                gameCard.onclick = () => window.open(juego.enlace, "_blank");
+                gameCard.innerHTML = `
+                    <img src="${juego.imagen}" alt="${juego.titulo}">
+                    <div class="info">
+                        <h2>${juego.titulo}</h2>
+                        <p>${juego.descripcion}</p>
+                    </div>
+                `;
+                container.appendChild(gameCard);
+            });
+        };
+    </script>
+</body>
+</html>
