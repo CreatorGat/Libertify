@@ -37,12 +37,14 @@
 
         .game {
             display: inline-block;
-            width: 300px;
+            width: 280px;
+            height: 420px;
+            vertical-align: top;
             margin: 20px;
             background: #3a3a3a;
-            border-radius: 10px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -52,23 +54,27 @@
 
         .game:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
         }
 
         .game img {
             width: 100%;
-            height: 200px;
+            height: 180px;
             object-fit: cover;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
         }
 
         .info {
             padding: 15px;
             text-align: left;
+            height: 160px;
+            overflow: hidden;
         }
 
         .info h2 {
             margin: 0;
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             color: #f1c40f;
         }
 
@@ -78,7 +84,7 @@
 
         .info p {
             margin: 10px 0 0;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #d1d1d1;
         }
 
@@ -86,16 +92,20 @@
             color: #555555;
         }
 
+        .button, .mode-toggle, .disclaimer-button, .youtube-fixed {
+            border: none;
+            padding: 10px 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
         .button {
             background-color: #00796b;
             color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
             margin: 10px 0;
-            transition: background-color 0.3s ease;
         }
 
         body.light-mode .button {
@@ -120,21 +130,12 @@
             color: #666;
         }
 
-        /* Botón de modo oscuro/claro en esquina inferior izquierda */
         .mode-toggle {
             position: fixed;
             bottom: 20px;
             left: 20px;
             background: #00796b;
             color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 14px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            z-index: 1000;
         }
 
         body.light-mode .mode-toggle {
@@ -143,24 +144,14 @@
 
         .mode-toggle:hover {
             transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
-        /* Botón de disclaimer en esquina inferior derecha */
         .disclaimer-button {
             position: fixed;
             bottom: 20px;
             right: 20px;
             background: #00796b;
             color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 14px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            z-index: 1000;
         }
 
         body.light-mode .disclaimer-button {
@@ -169,33 +160,22 @@
 
         .disclaimer-button:hover {
             transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
-        /* Botón fijo de YouTube */
         .youtube-fixed {
             position: fixed;
             bottom: 80px;
             right: 20px;
             background-color: #ff0000;
             color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 14px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             align-items: center;
             gap: 5px;
-            z-index: 1000;
         }
 
         .youtube-fixed:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
             background-color: #cc0000;
+            transform: scale(1.1);
         }
 
         .youtube-icon {
@@ -211,117 +191,32 @@
 <body>
     <div class="container">
         <h1>🎮 creatorgat :v</h1>
-        
-        <!-- Juegos se insertarán aquí dinámicamente -->
     </div>
 
-    <!-- Botón de modo oscuro/claro -->
     <button class="mode-toggle" onclick="toggleMode()">🌙 Modo Oscuro</button>
-
-    <!-- Botón fijo de YouTube -->
     <button class="youtube-fixed" onclick="window.open('https://youtu.be/MRz4nUrkdQg', '_blank')">
         <svg class="youtube-icon" viewBox="0 0 24 24">
-            <path fill="currentColor" d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.56 21.94,11.16L22,12C22,14.19 21.84,15.8 21.56,16.83C21.31,17.73 20.73,18.31 19.83,18.56C19.36,18.69 18.5,18.78 17.18,18.84C15.88,18.91 14.69,18.94 13.59,18.94L12,19C7.81,19 5.2,18.84 4.17,18.56C3.27,18.31 2.69,17.73 2.44,16.83C2.31,16.36 2.22,15.73 2.16,14.93C2.09,14.13 2.06,13.44 2.06,12.84L2,12C2,9.81 2.16,8.2 2.44,7.17C2.69,6.27 3.27,5.69 4.17,5.44C4.64,5.31 5.5,5.22 6.82,5.16C8.12,5.09 9.31,5.06 10.41,5.06L12,5C16.19,5 18.8,5.16 19.83,5.44C20.73,5.69 21.31,6.27 21.56,7.17Z"/>
+            <path fill="currentColor" d="M10,15L15.19,12L10,9V15M21.56...Z"/>
         </svg>
         YouTube
     </button>
-
     <button class="disclaimer-button" onclick="toggleDisclaimer()">❔</button>
-    <p id="disclaimer" class="disclaimer hidden">
-        Usar con responsabilidad
-    </p>
+    <p id="disclaimer" class="disclaimer hidden">Usar con responsabilidad</p>
 
     <script>
-        // Datos de los juegos
-        const juegos = [
-            {
-                titulo: "Ultimate Chicken Horse [ONLINE Y SIN MODS]",
-                descripcion: "Juego online de fiestas para jugar con tus amigos online o local.",
-                imagen: "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000002401/0beb41e342fc129c51b54cd9075c212ed208bdce61a15ac54dd7dc7e3426e118",
-                enlace: "https://www.mediafire.com/file/f9jzdqvy08dzf9n/Ultimate+Chicken+Horse.exe/file"
-            },
-            {
-                titulo: "Stardew Valley [NO ONLINE Y SIN MODS]",
-                descripcion: "Relaja, cultiva, explora y vive tu granja soñada.",
-                imagen: "https://image.api.playstation.com/cdn/UP2456/CUSA06840_00/0WuZecPtRr7aEsQPv2nJqiPa2ZvDOpYm.png",
-                enlace: "https://www.4shared.com/file/KCHfUmrSge/Stardew_Valley.html"
-            },
-            {
-                titulo: "Balatro [ONLINE Y CON MODS ]",
-                descripcion: "Balatro no es solo un juego de cartas, es un estilo de vida. Respiro y tomo Balatro. Si tuviera un hijo lo llamaría Full House y si tuviera dos les pondría Doble y Par para mejorarlos a nivel 18 y que rompan las ligas de jefe cuando sean adultos. Brindo por Balatro [Los mods van en la carpeta de mods ubicada en %appdata%/Balatro/Mods].",
-                imagen: "https://i0.wp.com/nerfeados.com/wp-content/uploads/2024/03/Balatro_Portada.jpg?fit=1920%2C1080&ssl=1",
-                enlace: "https://www.mediafire.com/file/lud04z3ub7txboh/Balatro.exe/file"
-            },
-            {
-                titulo: "Among Us [ONLINE Y SIN MODS]",
-                descripcion: "Among Us​ es un videojuego de género party y multijugador en línea.",
-                imagen: "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000036098/758ab0b61205081da2466386940752c70e0e5ea43bd39e8b9b13eaa455c69b7e",
-                enlace: "https://gofile.io/d/YwsJdS"
-            },
-            {
-                titulo: "The Stanley Parable: Ultra Deluxe [NO ONLINE Y SIN MODS]",
-                descripcion: "The Stanley Parable: Ultra Deluxe es un juego de exploración en primera persona. Es una versión nueva y expandida de The Stanley Parable.",
-                imagen: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1703340/header.jpg?t=1712065263",
-                enlace: "https://buzzheavier.com/418kfvri5sit"
-            },
-            {
-                titulo: "Schedule I [ONLINE Y SIN MODS]",
-                descripcion: "Simulador de traficante y cultivador de drogas con tus amigos.",
-                imagen: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3164500/3a542c825f36b33cd1f8fe51d28ed5eee7abc75d/capsule_616x353.jpg?t=1742853609",
-                enlace: "https://akirabox.com/N2p3DE2dAzMa/file"
-            },
-            {
-                titulo: "Guilty as Sock! [ONLINE Y SIN MODS]",
-                descripcion: "¡Entra en una caótica sala del tribunal donde los calcetines interpretan a abogados, fiscales y jueces!.",
-                imagen: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3400930/header.jpg?t=1748725275",
-                enlace: "https://gofile.io/d/PNjnk3"
-            },
-            {
-                titulo: "Content Warning [ONLINE Y CON MODS]",
-                descripcion: "¡Graba a tus amigos haciendo cosas aterradoras para volverse famosos en SpöökTube!",
-                imagen: "https://sm.ign.com/ign_es/cover/c/content-wa/content-warning_zb8a.jpg",
-                enlace: "https://www.mediafire.com/file/d6f0s5wf5m3w3on/Content+Warning.exe/file"
-            },
-            {
-                titulo: "RAFT [ONLINE Y CON MODS]",
-                descripcion: "Solo o con amigos, tu misión es sobrevivir a una épica aventura oceánica en un mar peligroso.",
-                imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202401/2516/606714c3dea91947fb3bd8f300b80bee3e205cd89497e962.png",
-                enlace: "https://www.mediafire.com/file/hqo7n81a4oxh1cx/Raft.exe/file"
-            },
-            {
-                titulo: "Lockdown Protocol [ONLINE Y SIN MODS]",
-                descripcion: "Lockdown Protocol es un juego parecido a Among Us pero en primera persona de 3 a 8 jugadores.",
-                imagen: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2780980/capsule_616x353.jpg?t=1721725451",
-                enlace: "https://buzzheavier.com/bqeyiocb9ljb"
-            },
-            {
-                titulo: "Gang Beast [ONLINE Y SIN MODS]",
-                descripcion: "Gang Beasts es un desternillante juego multijugador de peleas absurdas entre personajes gelatinosos y gruñones",
-                imagen: "https://m.media-amazon.com/images/M/MV5BM2RhM2JhMTgtNzM1ZS00NjJkLThkMzAtMjgyYTMzZWFmM2NhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-                enlace: "https://www.mediafire.com/file/nrzhqcs5aimov8e/Gang_Beasts.exe/file"
-            },
-        ];
+        const juegos = [/* tus juegos aquí */];
 
-        // Cambiar entre modo oscuro y claro
         function toggleMode() {
             const body = document.body;
             const button = document.querySelector('.mode-toggle');
             body.classList.toggle("light-mode");
-            
-            if (body.classList.contains("light-mode")) {
-                button.textContent = "🌙 Modo Oscuro";
-            } else {
-                button.textContent = "☀️ Modo Claro";
-            }
+            button.textContent = body.classList.contains("light-mode") ? "🌙 Modo Oscuro" : "☀️ Modo Claro";
         }
 
-        // Mostrar/ocultar disclaimer
         function toggleDisclaimer() {
-            const disclaimer = document.getElementById("disclaimer");
-            disclaimer.classList.toggle("hidden");
+            document.getElementById("disclaimer").classList.toggle("hidden");
         }
 
-        // Crear tarjetas dinámicamente
         window.onload = () => {
             const container = document.querySelector(".container");
             juegos.forEach(juego => {
