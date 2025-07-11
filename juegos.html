@@ -29,14 +29,19 @@
       gap: 16px;
     }
 
-    h1 {
-      font-size: 2rem;
-      color: #f1c40f;
+    .logo-header {
       grid-column: 1 / -1;
+      margin-bottom: 20px;
     }
 
-    body.light-mode h1 {
-      color: #1a73e8;
+    .logo-img {
+      max-width: 400px;
+      width: 100%;
+      height: auto;
+    }
+
+    body.light-mode .logo-img {
+      filter: brightness(0.8);
     }
 
     .game {
@@ -199,7 +204,10 @@
 </head>
 <body>
   <div class="container">
-    <h1>🎮 creatorgat :v</h1>
+    <div class="logo-header">
+      <!-- Reemplaza esta URL con la de tu propia imagen -->
+      <img src="https://i.imgur.com/ejemplo.png" alt="CreatorGat Games" class="logo-img">
+    </div>
   </div>
 
   <button class="mode-toggle" onclick="toggleMode()">🌙 Modo Oscuro</button>
@@ -214,12 +222,6 @@
 
   <script>
     const juegos = [
-      {
-        titulo: "Balatro [ONLINE Y CON MODS ]",
-        descripcion: "Balatro Balatrez esta jugando a balatro [Los mods van en la carpeta de mods ubicada en \"%appdata%/Balatro/Mods\"].",
-        imagen: "https://i0.wp.com/nerfeados.com/wp-content/uploads/2024/03/Balatro_Portada.jpg?fit=1920%2C1080&ssl=1",
-        enlace: "https://www.mediafire.com/file/lud04z3ub7txboh/Balatro.exe/file"
-      },
       {
         titulo: "Ultimate Chicken Horse [ONLINE Y SIN MODS]",
         descripcion: "Juego online de fiestas para jugar con tus amigos online o local.",
