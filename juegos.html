@@ -25,16 +25,21 @@
       color: var(--text);
     }
 
-    header {
-      text-align: center;
-      padding: 40px 20px 20px;
+    /* ===== BANNER ===== */
+    .banner {
+      max-width: 1300px;
+      margin: 40px auto 20px;
+      padding: 0 20px;
     }
 
-    header img {
-      max-width: 420px;
+    .banner img {
       width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 15px 40px rgba(0,0,0,.6);
     }
 
+    /* ===== CONTENIDO ===== */
     main {
       max-width: 1300px;
       margin: auto;
@@ -115,16 +120,19 @@
 </head>
 
 <body>
-  <header>
-    <img src="https://i.imgur.com/UHaNMsj.png" alt="Libertify Games">
-  </header>
 
+  <!-- BANNER -->
+  <div class="banner">
+    <img src="https://i.imgur.com/UHaNMsj.png" alt="Libertify Games">
+  </div>
+
+  <!-- JUEGOS -->
   <main>
     <div class="grid" id="games"></div>
   </main>
 
   <footer>
-    Libertify Games — no se almacena ningun archivo en la pagina
+    Libertify Games — no se almacena ningún archivo en la página
   </footer>
 
   <script>
@@ -177,7 +185,6 @@
         imagen: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1703340/header.jpg",
         enlace: "https://buzzheavier.com/418kfvri5sit"
       }
-      // agregar más juegos aquí ↓
     ];
 
     const grid = document.getElementById("games");
@@ -196,5 +203,6 @@
       grid.appendChild(card);
     });
   </script>
+
 </body>
 </html>
