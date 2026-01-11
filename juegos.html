@@ -15,9 +15,7 @@
       --muted: #b0b0b0;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -37,6 +35,70 @@
       width: 100%;
       border-radius: 16px;
       box-shadow: 0 15px 40px rgba(0,0,0,.6);
+    }
+
+    /* ===== UBLOCK ===== */
+    .ublock {
+      max-width: 1300px;
+      margin: 10px auto 30px;
+      padding: 0 20px;
+    }
+
+    .ublock-card {
+      background: linear-gradient(180deg, #1f1f1f, #151515);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.4);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .ublock-card h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .ublock-card p {
+      margin: 0;
+      font-size: .9rem;
+      color: var(--muted);
+    }
+
+    .ublock-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* ===== BOTÓN ===== */
+    .button {
+      text-align: center;
+      padding: 11px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: .3px;
+      color: var(--text);
+      background: linear-gradient(135deg, var(--accent-dark), #006f63);
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.08),
+        0 6px 15px rgba(0,0,0,.5);
+      transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+    }
+
+    .button:hover {
+      filter: brightness(1.15);
+      transform: translateY(-1px);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.12),
+        0 10px 25px rgba(0,0,0,.7);
+    }
+
+    .button:active {
+      transform: translateY(1px);
+      box-shadow: inset 0 3px 6px rgba(0,0,0,.6);
     }
 
     /* ===== CONTENIDO ===== */
@@ -93,42 +155,6 @@
       flex-grow: 1;
     }
 
-    /* ===== BOTÓN MEJORADO ===== */
-    .button {
-      margin-top: 8px;
-      text-align: center;
-      padding: 11px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600;
-      letter-spacing: .3px;
-      color: var(--text);
-      background: linear-gradient(
-        135deg,
-        var(--accent-dark),
-        #006f63
-      );
-      border: 1px solid rgba(255,255,255,.08);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.08),
-        0 6px 15px rgba(0,0,0,.5);
-      transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
-    }
-
-    .button:hover {
-      filter: brightness(1.15);
-      transform: translateY(-1px);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.12),
-        0 10px 25px rgba(0,0,0,.7);
-    }
-
-    .button:active {
-      transform: translateY(1px);
-      box-shadow:
-        inset 0 3px 6px rgba(0,0,0,.6);
-    }
-
     footer {
       text-align: center;
       padding: 30px 10px;
@@ -140,10 +166,33 @@
 
 <body>
 
+  <!-- BANNER -->
   <div class="banner">
     <img src="https://i.imgur.com/RxLWZSI.png" alt="Libertify Games">
   </div>
 
+  <!-- RECOMENDACIÓN UBLOCK -->
+  <section class="ublock">
+    <div class="ublock-card">
+      <h3>Recomendado: uBlock Origin</h3>
+      <p>
+        Para una mejor experiencia (y menos cosas raras volando por la pantalla),
+        usa uBlock Origin. Gratis, ligero y no te juzga.
+      </p>
+      <div class="ublock-buttons">
+        <a class="button" target="_blank"
+           href="https://addons.mozilla.org/firefox/addon/ublock-origin/">
+          Descargar para Firefox
+        </a>
+        <a class="button" target="_blank"
+           href="https://chromewebstore.google.com/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm">
+          Descargar para Chrome
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- JUEGOS -->
   <main>
     <div class="grid" id="games"></div>
   </main>
