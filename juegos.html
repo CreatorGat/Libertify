@@ -10,6 +10,7 @@
       --bg: #121212;
       --card: #1e1e1e;
       --accent: #00bfa6;
+      --accent-dark: #009e8a;
       --text: #eaeaea;
       --muted: #b0b0b0;
     }
@@ -34,7 +35,6 @@
 
     .banner img {
       width: 100%;
-      height: auto;
       border-radius: 16px;
       box-shadow: 0 15px 40px rgba(0,0,0,.6);
     }
@@ -84,7 +84,6 @@
     .info h2 {
       font-size: 1.05rem;
       margin: 0;
-      line-height: 1.3;
     }
 
     .info p {
@@ -94,20 +93,40 @@
       flex-grow: 1;
     }
 
+    /* ===== BOTÓN MEJORADO ===== */
     .button {
+      margin-top: 8px;
       text-align: center;
-      padding: 10px;
-      border-radius: 8px;
+      padding: 11px;
+      border-radius: 10px;
       text-decoration: none;
       font-weight: 600;
-      background: linear-gradient(135deg, var(--accent), #ba8722);
-      color: #000;
-      transition: filter .2s ease, transform .2s ease;
+      letter-spacing: .3px;
+      color: var(--text);
+      background: linear-gradient(
+        135deg,
+        var(--accent-dark),
+        #006f63
+      );
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.08),
+        0 6px 15px rgba(0,0,0,.5);
+      transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
     }
 
     .button:hover {
-      filter: brightness(1.1);
-      transform: scale(1.03);
+      filter: brightness(1.15);
+      transform: translateY(-1px);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.12),
+        0 10px 25px rgba(0,0,0,.7);
+    }
+
+    .button:active {
+      transform: translateY(1px);
+      box-shadow:
+        inset 0 3px 6px rgba(0,0,0,.6);
     }
 
     footer {
@@ -121,12 +140,10 @@
 
 <body>
 
-  <!-- BANNER -->
   <div class="banner">
     <img src="https://i.imgur.com/RxLWZSI.png" alt="Libertify Games">
   </div>
 
-  <!-- JUEGOS -->
   <main>
     <div class="grid" id="games"></div>
   </main>
