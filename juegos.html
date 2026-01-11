@@ -1,319 +1,343 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CreatorGat games</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #160a20;
-      color: #e0e0e0;
-      transition: all 0.3s ease;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreatorGat games</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2d2d2d;
+            color: #e0e0e0;
+            transition: all 0.3s ease;
+        }
 
-    .container {
-      padding: 20px;
-      max-width: 1200px;
-      margin: auto;
-      text-align: center;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 16px;
-    }
+        body.light-mode {
+            background-color: #f9f9f9;
+            color: #333333;
+        }
 
-    .logo-header {
-      grid-column: 1 / -1;
-      margin-bottom: 20px;
-    }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+        }
 
-    .logo-img {
-      max-width: 400px;
-      width: 100%;
-      height: auto;
-    }
+        h1 {
+            font-size: 2rem;
+            color: #f1c40f;
+        }
 
-    .game {
-      background: #a14a1d;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
+        body.light-mode h1 {
+            color: #1a73e8;
+        }
 
-    .game:hover {
-      transform: scale(1.03);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    }
+        .game {
+            display: inline-block;
+            width: 300px;
+            margin: 20px;
+            background: #3a3a3a;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    .game img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
+        body.light-mode .game {
+            background: #ffffff;
+        }
 
-    .info {
-      padding: 15px;
-      text-align: left;
-      flex-grow: 1;
-    }
+        .game:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
 
-    .info h2 {
-      margin: 0 0 10px 0;
-      font-size: 1.1rem;
-      color: #f1c40f;
-    }
+        .game img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
 
-    .info p {
-      font-size: 0.9rem;
-      color: #d1d1d1;
-      margin-bottom: 10px;
-    }
+        .info {
+            padding: 15px;
+            text-align: left;
+        }
 
-    .info .button {
-      background-color: #00796b;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 14px;
-      text-align: center;
-      display: inline-block;
-      transition: background-color 0.3s ease;
-      text-decoration: none;
-    }
+        .info h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #f1c40f;
+        }
 
-    .info .button:hover {
-      background-color: #005a4f;
-    }
+        body.light-mode .info h2 {
+            color: #1a73e8;
+        }
 
-    .disclaimer-button,
-    .youtube-fixed {
-      border: none;
-      padding: 10px 15px;
-      border-radius: 25px;
-      cursor: pointer;
-      font-size: 14px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-    }
+        .info p {
+            margin: 10px 0 0;
+            font-size: 0.9rem;
+            color: #d1d1d1;
+        }
 
-    .disclaimer-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #00796b;
-      color: white;
-    }
+        body.light-mode .info p {
+            color: #555555;
+        }
 
-    .disclaimer-button:hover {
-      transform: scale(1.1);
-    }
+        .button {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 10px 0;
+            transition: background-color 0.3s ease;
+        }
 
-    .youtube-fixed {
-      position: fixed;
-      bottom: 80px;
-      right: 20px;
-      background-color: #ff0000;
-      color: white;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
+        body.light-mode .button {
+            background-color: #ff9800;
+        }
 
-    .youtube-fixed:hover {
-      background-color: #cc0000;
-      transform: scale(1.1);
-    }
+        .button:hover {
+            background-color: #005a4f;
+        }
 
-    .youtube-icon {
-      width: 20px;
-      height: 20px;
-    }
+        body.light-mode .button:hover {
+            background-color: #e68900;
+        }
 
-    .disclaimer {
-      font-size: 0.8rem;
-      color: #aaa;
-      margin-top: 20px;
-      text-align: center;
-    }
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-top: 20px;
+        }
 
-    .hidden {
-      display: none;
-    }
-  </style>
+        body.light-mode .disclaimer {
+            color: #666;
+        }
+
+        /* Botón de modo oscuro/claro en esquina inferior izquierda */
+        .mode-toggle {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #00796b;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 1000;
+        }
+
+        body.light-mode .mode-toggle {
+            background-color: #ff9800;
+        }
+
+        .mode-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Botón de disclaimer en esquina inferior derecha */
+        .disclaimer-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #00796b;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 1000;
+        }
+
+        body.light-mode .disclaimer-button {
+            background-color: #ff9800;
+        }
+
+        .disclaimer-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Botón fijo de YouTube */
+        .youtube-fixed {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            z-index: 1000;
+        }
+
+        .youtube-fixed:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            background-color: #cc0000;
+        }
+
+        .youtube-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="logo-header">
-      <img src="https://i.imgur.com/7oOKi5Q.png" class="logo-img" style="width:900px; height:auto; max-width:100%">
+    <div class="container">
+        <h1>🎮 creatorgat :v</h1>
+        
+        <!-- Juegos se insertarán aquí dinámicamente -->
     </div>
-  </div>
 
-  <button class="youtube-fixed" onclick="window.open('https://youtu.be/MRz4nUrkdQg', '_blank')">
-    <svg class="youtube-icon" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.56 21.94,11.16L22,12C22,14.19 21.84,15.8 21.56,16.83C21.31,17.73 20.73,18.31 19.83,18.56C19.36,18.69 18.5,18.78 17.18,18.84C15.88,18.91 14.69,18.94 13.59,18.94L12,19C7.81,19 5.2,18.84 4.17,18.56C3.27,18.31 2.69,17.73 2.44,16.83C2.31,16.36 2.22,15.73 2.16,14.93C2.09,14.13 2.06,13.44 2.06,12.84L2,12C2,9.81 2.16,8.2 2.44,7.17C2.69,6.27 3.27,5.69 4.17,5.44C4.64,5.31 5.5,5.22 6.82,5.16C8.12,5.09 9.31,5.06 10.41,5.06L12,5C16.19,5 18.8,5.16 19.83,5.44C20.73,5.69 21.31,6.27 21.56,7.17Z"/>
-    </svg>
-    YouTube
-  </button>
-  <button class="disclaimer-button" onclick="toggleDisclaimer()">❔</button>
-  <p id="disclaimer" class="disclaimer hidden">Usar con responsabilidad</p>
+    <!-- Botón de modo oscuro/claro -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 Modo Oscuro</button>
 
-  <script>
-    const juegos = [
-      {
-        titulo: "Ultimate Chicken Horse [ONLINE Y SIN MODS]",
-        descripcion: "Juego online de fiestas para jugar con tus amigos online o local.",
-        imagen: "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000002401/0beb41e342fc129c51b54cd9075c212ed208bdce61a15ac54dd7dc7e3426e118",
-        enlace: "https://www.mediafire.com/file/f9jzdqvy08dzf9n/Ultimate+Chicken+Horse.exe/file"
-      },
-      {
-        titulo: "Hollow Knight: Silksong [NO ONLINE Y SIN MODS]",
-        descripcion: "¡Descubre un vasto reino embrujado en Hollow Knight: Silksong! Explora, lucha y sobrevive.",
-        imagen: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1030300/7983574d464e6559ac7e24275727f73a8bcca1f3/header.jpg?t=1756994410",
-        enlace: "https://gofile.io/d/vGCMG2"
-      },
-      {
-        titulo: "Stardew Valley [NO ONLINE Y SIN MODS]",
-        descripcion: "Relaja, cultiva, explora y vive tu granja soñada. [No version optima]",
-        imagen: "https://image.api.playstation.com/cdn/UP2456/CUSA06840_00/0WuZecPtRr7aEsQPv2nJqiPa2ZvDOpYm.png",
-        enlace: "https://www.mediafire.com/file/srcufq8wau7ju8q/Stardew+Valley.exe/file"
-      },
-      {
-        titulo: "Castle Crashers [NO ONLINE Y SIN MODS]",
-        descripcion: "¡Ábrete paso golpeando, acuchillando y machacando en este multijugador local clasico! [+DLC]",
-        imagen: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/204360/header.jpg?t=1754506967",
-        enlace: "https://www.mediafire.com/file/mnlsmj7do72da9q/Castle+Crashers.exe/file"
-      },
-      {
-        titulo: "Balatro [ONLINE Y CON MODS]",
-        descripcion: "Balatro no es solo un juego de cartas, es un estilo de vida...",
-        imagen: "https://i0.wp.com/nerfeados.com/wp-content/uploads/2024/03/Balatro_Portada.jpg?fit=1920%2C1080&ssl=1",
-        enlace: "https://www.mediafire.com/file/lud04z3ub7txboh/Balatro.exe/file"
-      },
-      {
-        titulo: "Among Us [ONLINE Y SIN MODS]",
-        descripcion: "Among Us​ es un videojuego de género party y multijugador en línea. [Desactualizado ligeramente]",
-        imagen: "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000036098/758ab0b61205081da2466386940752c70e0e5ea43bd39e8b9b13eaa455c69b7e",
-        enlace: "https://gofile.io/d/YwsJdS"
-      },
-      {
-        titulo: "Undertale [NO ONLINE Y SIN MODS]",
-        descripcion: "Juego de rol con interesante historia.",
-        imagen: "https://images.hive.blog/1200x630/https://images.hive.blog/DQmaHSzZ5fAG3pzfV4nBErRZBKx92Q4ixDwYF1worjXLW7g/ar4vc.jpeg",
-        enlace: "https://www.mediafire.com/file/fvn9dw35ws6itue/Undertale.exe/file"
-      },
-      {
-        titulo: "The Stanley Parable: Ultra Deluxe [NO ONLINE Y SIN MODS]",
-        descripcion: "Es una versión nueva y expandida de The Stanley Parable.",
-        imagen: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1703340/header.jpg?t=1712065263",
-        enlace: "https://buzzheavier.com/418kfvri5sit"
-      },
-      {
-        titulo: "Schedule I [ONLINE Y SIN MODS]",
-        descripcion: "Simulador de traficante y cultivador de drogas con tus amigos. [Desactualizado]",
-        imagen: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3164500/3a542c825f36b33cd1f8fe51d28ed5eee7abc75d/capsule_616x353.jpg?t=1742853609",
-        enlace: "https://akirabox.com/N2p3DE2dAzMa/file"
-      },
-      {
-        titulo: "DELTARUNE [NO ONLINE Y SIN MODS]",
-        descripcion: "Deltarune es un juego de rol episódico desarrollado por Toby Fox, el creador de Undertale.",
-        imagen: "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/04/deltarune-wallpaper.jpg",
-        enlace: "https://www.mediafire.com/file/apxf69132mf0ezr/DELTARUNE.exe/file"
-      },
-      {
-        titulo: "Peak [ONLINE Y SIN MODS]",
-        descripcion: "Peak es un videojuego de escalada cooperativo multijugador.",
-        imagen: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/257155585/0d897adde23806bfffb625c155152f1897de3eb5/movie_232x130.jpg?t=1750093233",
-        enlace: "https://www.mediafire.com/file/pxrqiaj2osngtpm/PEAK.exe/file"
-      },
-      {
-        titulo: "Guilty as Sock! [ONLINE Y SIN MODS]",
-        descripcion: "¡Entra en una caótica sala del tribunal donde los calcetines son abogados!",
-        imagen: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3400930/header.jpg?t=1748725275",
-        enlace: "https://gofile.io/d/PNjnk3"
-      },
-      {
-        titulo: "RimWorld [NO ONLINE Y SIN MODS]",
-        descripcion: "Un simulador de colonias de ciencia ficción dirigido por una brillante Inteligencia Artificial que narrará la historia. [Todos los dlc GOG]",
-        imagen: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/capsule_616x353.jpg?t=1752247312",
-        enlace: "https://filespayouts.com/c42oypu7gl4y/Rimworld_GOG.exe"
-      },
-      {
-        titulo: "Content Warning [ONLINE Y CON MODS]",
-        descripcion: "¡Graba a tus amigos haciendo cosas aterradoras para volverse famosos en SpöökTube!",
-        imagen: "https://sm.ign.com/ign_es/cover/c/content-wa/content-warning_zb8a.jpg",
-        enlace: "https://www.mediafire.com/file/d6f0s5wf5m3w3on/Content+Warning.exe/file"
-      },
-      {
-        titulo: "Just Shapes & Beats [NO ONLINE Y SIN MODS]",
-        descripcion: "Juego de ritmo.",
-        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCkI6LlHHeLFjboJ7ESCB17C2bJtlG5LE8QA&s",
-        enlace: "https://www.mediafire.com/file/v7v5zphyucur7yx/Just+Shapes+and+Beats.exe/file"
-      },
-      {
-        titulo: "RAFT [ONLINE Y CON MODS]",
-        descripcion: "Tu misión es sobrevivir a una épica aventura oceánica.",
-        imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202401/2516/606714c3dea91947fb3bd8f300b80bee3e205cd89497e962.png",
-        enlace: "https://www.mediafire.com/file/hqo7n81a4oxh1cx/Raft.exe/file"
-      },
-      {
-        titulo: "Lockdown Protocol [ONLINE Y SIN MODS]",
-        descripcion: "Lockdown Protocol es un juego parecido a Among Us pero en primera persona.",
-        imagen: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2780980/capsule_616x353.jpg?t=1721725451",
-        enlace: "https://buzzheavier.com/bqeyiocb9ljb"
-      },
-      {
-        titulo: "Shovel Knight: Treasure Trove [NO ONLINE Y SIN MODS]",
-        descripcion: "Salta y carga en este fantástico mundo inspirado en los juegos de 8-bits.",
-        imagen: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/250760/header.jpg?t=1723577994",
-        enlace: "https://www.mediafire.com/file/wv7a84bmjgiorjk/Shovel_Knight_Treasure_Trove.exe/file"
-      },
-      {
-        titulo: "OMORI [NO ONLINE Y SIN MODS]",
-        descripcion: "El camino que has elegido determinará tu destino. [Se abre con el .bat]",
-        imagen: "https://assets.nintendo.com/image/upload/q_auto/f_auto/ncom/software/switch/70010000051039/151f6f31fd0a03be3bfa17d07dfd9f6b7c423063bb46a8678c2ca15b1acce398",
-        enlace: "https://www.mediafire.com/file/5ziiv4ikgdop8lg/OMORI.exe/file"
-      },
-      {
-        titulo: "Shotgun King [NO ONLINE Y SIN MODS]",
-        descripcion: "Todo tu ejercito se volvió blanco y eres el único negro... Con una escopeta [Instalador GOG]",
-        imagen: "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000056962/11a2b9a0c6c126296b1fdb489035b2bba42ce845ed1c7e910d12ee016053ce01",
-        enlace: "https://www.mediafire.com/file/e2rmg15he2tiduj/Shotgun+King.exe/file"
-      },
-      {
-        titulo: "Gang Beast [ONLINE Y SIN MODS]",
-        descripcion: "Peleas absurdas entre personajes gelatinosos y gruñones.",
-        imagen: "https://m.media-amazon.com/images/M/MV5BM2RhM2JhMTgtNzM1ZS00NjJkLThkMzAtMjgyYTMzZWFmM2NhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-        enlace: "https://www.mediafire.com/file/nrzhqcs5aimov8e/Gang_Beasts.exe/file"
-      }
-    ];
+    <!-- Botón fijo de YouTube -->
+    <button class="youtube-fixed" onclick="window.open('https://youtu.be/MRz4nUrkdQg', '_blank')">
+        <svg class="youtube-icon" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.56 21.94,11.16L22,12C22,14.19 21.84,15.8 21.56,16.83C21.31,17.73 20.73,18.31 19.83,18.56C19.36,18.69 18.5,18.78 17.18,18.84C15.88,18.91 14.69,18.94 13.59,18.94L12,19C7.81,19 5.2,18.84 4.17,18.56C3.27,18.31 2.69,17.73 2.44,16.83C2.31,16.36 2.22,15.73 2.16,14.93C2.09,14.13 2.06,13.44 2.06,12.84L2,12C2,9.81 2.16,8.2 2.44,7.17C2.69,6.27 3.27,5.69 4.17,5.44C4.64,5.31 5.5,5.22 6.82,5.16C8.12,5.09 9.31,5.06 10.41,5.06L12,5C16.19,5 18.8,5.16 19.83,5.44C20.73,5.69 21.31,6.27 21.56,7.17Z"/>
+        </svg>
+        YouTube
+    </button>
 
-    function toggleDisclaimer() {
-      document.getElementById("disclaimer").classList.toggle("hidden");
-    }
+    <button class="disclaimer-button" onclick="toggleDisclaimer()">❔</button>
+    <p id="disclaimer" class="disclaimer hidden">
+        Usar con responsabilidad
+    </p>
 
-    window.onload = () => {
-      const container = document.querySelector(".container");
-      juegos.forEach(juego => {
-        const gameCard = document.createElement("div");
-        gameCard.className = "game";
-        gameCard.innerHTML = `
-          <img src="${juego.imagen}" alt="${juego.titulo}">
-          <div class="info">
-            <h2>${juego.titulo}</h2>
-            <p>${juego.descripcion}</p>
-            <a href="${juego.enlace}" target="_blank" class="button">Descargar</a>
-          </div>
-        `;
-        container.appendChild(gameCard);
-      });
-    };
-  </script>
+    <script>
+        // Datos de los juegos
+        const juegos = [
+            {
+                titulo: "Ultimate Chicken Horse [ONLINE Y SIN MODS]",
+                descripcion: "Juego online de fiestas para jugar con tus amigos online o local.",
+                imagen: "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000002401/0beb41e342fc129c51b54cd9075c212ed208bdce61a15ac54dd7dc7e3426e118",
+                enlace: "https://www.mediafire.com/file/f9jzdqvy08dzf9n/Ultimate+Chicken+Horse.exe/file"
+            },
+            {
+                titulo: "Stardew Valley [NO ONLINE Y SIN MODS]",
+                descripcion: "Relaja, cultiva, explora y vive tu granja soñada.",
+                imagen: "https://image.api.playstation.com/cdn/UP2456/CUSA06840_00/0WuZecPtRr7aEsQPv2nJqiPa2ZvDOpYm.png",
+                enlace: "https://www.4shared.com/file/KCHfUmrSge/Stardew_Valley.html"
+            },
+            {
+                titulo: "Balatro [ONLINE Y CON MODS ]",
+                descripcion: "Balatro no es solo un juego de cartas, es un estilo de vida. Respiro y tomo Balatro. Si tuviera un hijo lo llamaría Full House y si tuviera dos les pondría Doble y Par para mejorarlos a nivel 18 y que rompan las ligas de jefe cuando sean adultos. Brindo por Balatro [Los mods van en la carpeta de mods ubicada en %appdata%/Balatro/Mods].",
+                imagen: "https://i0.wp.com/nerfeados.com/wp-content/uploads/2024/03/Balatro_Portada.jpg?fit=1920%2C1080&ssl=1",
+                enlace: "https://www.mediafire.com/file/lud04z3ub7txboh/Balatro.exe/file"
+            },
+            {
+                titulo: "Among Us [ONLINE Y SIN MODS]",
+                descripcion: "Among Us​ es un videojuego de género party y multijugador en línea.",
+                imagen: "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000036098/758ab0b61205081da2466386940752c70e0e5ea43bd39e8b9b13eaa455c69b7e",
+                enlace: "https://gofile.io/d/YwsJdS"
+            },
+            {
+                titulo: "The Stanley Parable: Ultra Deluxe [NO ONLINE Y SIN MODS]",
+                descripcion: "The Stanley Parable: Ultra Deluxe es un juego de exploración en primera persona. Es una versión nueva y expandida de The Stanley Parable.",
+                imagen: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1703340/header.jpg?t=1712065263",
+                enlace: "https://buzzheavier.com/418kfvri5sit"
+            },
+            {
+                titulo: "Schedule I [ONLINE Y SIN MODS]",
+                descripcion: "Simulador de traficante y cultivador de drogas con tus amigos.",
+                imagen: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3164500/3a542c825f36b33cd1f8fe51d28ed5eee7abc75d/capsule_616x353.jpg?t=1742853609",
+                enlace: "https://akirabox.com/N2p3DE2dAzMa/file"
+            },
+            {
+                titulo: "Guilty as Sock! [ONLINE Y SIN MODS]",
+                descripcion: "¡Entra en una caótica sala del tribunal donde los calcetines interpretan a abogados, fiscales y jueces!.",
+                imagen: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3400930/header.jpg?t=1748725275",
+                enlace: "https://gofile.io/d/PNjnk3"
+            },
+            {
+                titulo: "Content Warning [ONLINE Y CON MODS]",
+                descripcion: "¡Graba a tus amigos haciendo cosas aterradoras para volverse famosos en SpöökTube!",
+                imagen: "https://sm.ign.com/ign_es/cover/c/content-wa/content-warning_zb8a.jpg",
+                enlace: "https://www.mediafire.com/file/d6f0s5wf5m3w3on/Content+Warning.exe/file"
+            },
+            {
+                titulo: "RAFT [ONLINE Y CON MODS]",
+                descripcion: "Solo o con amigos, tu misión es sobrevivir a una épica aventura oceánica en un mar peligroso.",
+                imagen: "https://image.api.playstation.com/vulcan/ap/rnd/202401/2516/606714c3dea91947fb3bd8f300b80bee3e205cd89497e962.png",
+                enlace: "https://www.mediafire.com/file/hqo7n81a4oxh1cx/Raft.exe/file"
+            },
+            {
+                titulo: "Lockdown Protocol [ONLINE Y SIN MODS]",
+                descripcion: "Lockdown Protocol es un juego parecido a Among Us pero en primera persona de 3 a 8 jugadores.",
+                imagen: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2780980/capsule_616x353.jpg?t=1721725451",
+                enlace: "https://buzzheavier.com/bqeyiocb9ljb"
+            },
+            {
+                titulo: "Gang Beast [ONLINE Y SIN MODS]",
+                descripcion: "Gang Beasts es un desternillante juego multijugador de peleas absurdas entre personajes gelatinosos y gruñones",
+                imagen: "https://m.media-amazon.com/images/M/MV5BM2RhM2JhMTgtNzM1ZS00NjJkLThkMzAtMjgyYTMzZWFmM2NhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+                enlace: "https://www.mediafire.com/file/nrzhqcs5aimov8e/Gang_Beasts.exe/file"
+            },
+        ];
+
+        // Cambiar entre modo oscuro y claro
+        function toggleMode() {
+            const body = document.body;
+            const button = document.querySelector('.mode-toggle');
+            body.classList.toggle("light-mode");
+            
+            if (body.classList.contains("light-mode")) {
+                button.textContent = "🌙 Modo Oscuro";
+            } else {
+                button.textContent = "☀️ Modo Claro";
+            }
+        }
+
+        // Mostrar/ocultar disclaimer
+        function toggleDisclaimer() {
+            const disclaimer = document.getElementById("disclaimer");
+            disclaimer.classList.toggle("hidden");
+        }
+
+        // Crear tarjetas dinámicamente
+        window.onload = () => {
+            const container = document.querySelector(".container");
+            juegos.forEach(juego => {
+                const gameCard = document.createElement("div");
+                gameCard.className = "game";
+                gameCard.onclick = () => window.open(juego.enlace, "_blank");
+                gameCard.innerHTML = `
+                    <img src="${juego.imagen}" alt="${juego.titulo}">
+                    <div class="info">
+                        <h2>${juego.titulo}</h2>
+                        <p>${juego.descripcion}</p>
+                    </div>
+                `;
+                container.appendChild(gameCard);
+            });
+        };
+    </script>
 </body>
 </html>
